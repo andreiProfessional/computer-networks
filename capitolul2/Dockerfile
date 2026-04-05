@@ -20,4 +20,4 @@ COPY ./src/simple_flask.py .
 EXPOSE 8001
 
 # Comanda la pornirea containerului
-CMD ["python3", "./src/simple_flask.py"]
+CMD ["python3", "simple_flask.py"]
