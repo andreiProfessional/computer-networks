@@ -5,7 +5,9 @@ app = Flask(__name__)
 
 @app.route('/')
 def hello():
-    return "Hello World!"
+    nume = "Nicula Andrei Alexandru"
+    numar_matricol = "312/2024"
+    return "Nume: " + nume + "<br>" + "Numar matricol: " + numar_matricol + "<br>"
 
 '''
 This method expects a json content.
