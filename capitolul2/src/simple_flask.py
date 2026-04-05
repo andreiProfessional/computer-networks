@@ -20,14 +20,12 @@ def post_method():
     print(request.get_json()['value']*2)
     return jsonify({'got_it': 'yes'})
 
-@app.route('/ip')
+@app.route('/ip', methods=['GET'])
 def get_ip():
-    host_name_ip = socket.gethostbyname(socket.gethostname())
-    return jsonify({"ip": host_name_ip})
-    
+    ip = socket.gethostbyname(socket.gethostname())
+    return jsonify({"ip": ip})
 
-
-@app.route('/item/<item_id>')
+@app.route('/item/<item_id>', methods=['GET'])
 def get_item(item_id):
     return jsonify({"item_id": item_id})
 
