@@ -1,5 +1,6 @@
 from flask import Flask, jsonify
 from flask import request
+import socket
 
 app = Flask(__name__)
 
@@ -19,6 +20,16 @@ def post_method():
     print(request.get_json()['value']*2)
     return jsonify({'got_it': 'yes'})
 
+@app.route('/ip')
+def get_ip():
+    host_name_ip = socket.gethostbyname(socket.gethostname())
+    return jsonify({"ip": host_name_ip})
+    
+
+
+@app.route('/item/<item_id>')
+def get_item(item_id):
+    return jsonify({"item_id": item_id})
 
 @app.route('/<name>')
 def hello_name(name):
